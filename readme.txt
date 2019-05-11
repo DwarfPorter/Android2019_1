@@ -9,4 +9,6 @@
 	Lesson-3/Scrolling - "Прокручивание списка"
 	Lesson-3/DigitalKeyboard - "Цифровая клавиатура"
 	Lesson-3/Coordinator - "Пример с макетом Coordinator"
+Урок 4:
+	Lesson-4/StateActivity - "Сохранение состояния активити"
 	
