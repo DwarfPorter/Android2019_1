@@ -5,4 +5,5 @@
 	Lesson-2/LifeCycle - "Жизненный цикл активити"
 	Lesson-2/CallBrowser - "Вызов браузера"
 	Lesson-2/SendSMS - "Отправка СМС"
-	
+Урок 3:
+	Lesson-3/Scrolling - "Прокручивание списка"
