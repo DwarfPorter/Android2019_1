@@ -14,23 +14,7 @@ public class MainActivity extends AppCompatActivity {// Наследуем кл�
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView greeting = (TextView) findViewById(R.id.greeting); // Получить элемент
-        greeting.setText(greetPhrase());
-    }
-    private String greetPhrase(){
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); // час сейчас
-        Resources resources = getResources();
-        String helloer = resources.getString(R.string.helloer);
-        if (5 <= currentHour && currentHour < 12 ){         // Если утро
-            return String.format("%s %s!", resources.getString(R.string.morning), helloer);
-        }
-        else if (12 <= currentHour && currentHour < 6){     // Если день
-            return String.format("%s %s!", resources.getString(R.string.afternoon), helloer);
-        }
-        else if (6 <= currentHour && currentHour < 9){      // Если вечер
-            return String.format("%s %s!", resources.getString(R.string.evening), helloer);
-        }
-        else {                                              // Если поздний вечер или ночь
-            return String.format("%s %s!", resources.getString(R.string.night), helloer);
-        }
+        BuilderGreetingPhrase builderGreetingPhrase = new BuilderGreetingPhrase(getResources());
+        greeting.setText(builderGreetingPhrase.get());
     }
 }
