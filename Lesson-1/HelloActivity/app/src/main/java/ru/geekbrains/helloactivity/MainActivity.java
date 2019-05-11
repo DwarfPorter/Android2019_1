@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity implements GreetingStrings {  // Наследуем класс Activity
     // или его потомка
     // Этот метод вызывается при создании Activity
@@ -13,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements GreetingStrings {
         setContentView(R.layout.activity_main);
         TextView greeting = findViewById(R.id.greeting); // Получить элемент
         BuilderGreetingPhrase builderGreetingPhrase = new BuilderGreetingPhrase(this);
-        greeting.setText(builderGreetingPhrase.get());                            // Заменить значение
+        greeting.setText(builderGreetingPhrase.get(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)));
     }
 
     @Override
