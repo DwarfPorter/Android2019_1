@@ -1,5 +1,6 @@
 package ru.geekbrains.helloactivity;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -13,18 +14,23 @@ public class MainActivity extends AppCompatActivity {// Наследуем кл�
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView greeting = (TextView) findViewById(R.id.greeting); // Получить элемент
+        greeting.setText(greetPhrase());
+    }
+    private String greetPhrase(){
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); // час сейчас
+        Resources resources = getResources();
+        String helloer = resources.getString(R.string.helloer);
         if (5 <= currentHour && currentHour < 12 ){         // Если утро
-            greeting.setText("Good morning GeekBrains!");
+            return String.format("%s %s!", resources.getString(R.string.morning), helloer);
         }
         else if (12 <= currentHour && currentHour < 6){     // Если день
-            greeting.setText("Good afternoon GeekBrains!");
+            return String.format("%s %s!", resources.getString(R.string.afternoon), helloer);
         }
         else if (6 <= currentHour && currentHour < 9){      // Если вечер
-            greeting.setText("Good evening GeekBrains!");
+            return String.format("%s %s!", resources.getString(R.string.evening), helloer);
         }
-        else {
-            greeting.setText("Good night GeekBrains!");     // Если поздний вечер или ночь
+        else {                                              // Если поздний вечер или ночь
+            return String.format("%s %s!", resources.getString(R.string.night), helloer);
         }
     }
 }
