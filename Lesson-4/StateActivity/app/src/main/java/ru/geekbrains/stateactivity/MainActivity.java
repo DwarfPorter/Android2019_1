@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textCounter;
     private int counter = 0;       // Счетчик
 
     @Override
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // выведем, какой это запуск
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()", Toast.LENGTH_SHORT).show();
-        textCounter = (TextView) findViewById(R.id.textCounter);    // Поле счетчика
+        final TextView textCounter = (TextView) findViewById(R.id.textCounter);    // Поле счетчика
         textCounter.setText(((Integer)counter).toString());         // Выводим счетчик на экран
         Button button = (Button) findViewById(R.id.button);         // Кнопка
         button.setOnClickListener(new View.OnClickListener() {      // Обработка нажатий
@@ -37,20 +36,5 @@ public class MainActivity extends AppCompatActivity {
                 textCounter.setText(((Integer)counter).toString());
             }
         });
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle saveInstanceState){
-        super.onSaveInstanceState(saveInstanceState);
-        Toast.makeText(getApplicationContext(), "onSaveInstanceState()", Toast.LENGTH_SHORT).show();
-        saveInstanceState.putInt("Counter", counter);               // Сохраняем счетчик
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle saveInstanceState){
-        super.onRestoreInstanceState(saveInstanceState);
-        Toast.makeText(getApplicationContext(), "Повторный запуск!! - onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
-        counter = saveInstanceState.getInt("Counter");              // Восстанавливаем счетчик
-        textCounter.setText(((Integer)counter).toString());         // Выводим счетчик в поле
     }
 }
