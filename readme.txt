@@ -20,3 +20,4 @@
 	Lesson-5/CheckEqualityWithTests - Сравнение чисел работа через тестирование
 Урок 6:
 	Lesson-6/CityHeraldry - "Гербы городов"
+	Lesson-6/FragmentManager - Исследование менеджера фрагментов.
