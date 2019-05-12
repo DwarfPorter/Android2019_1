@@ -16,5 +16,10 @@ public class CheckEqualsTest {
         String actual = checkEquals.Compare(2, 2);
         assertEquals("Равно!", actual);
     }
-
+    @Test
+    public void CheckEquals_Compare_WrongTest() {
+        CheckEquals checkEquals = new CheckEquals();
+        String actual = checkEquals.Compare(2, 3);
+        assertEquals("Не равно!", actual);
+    }
 }
