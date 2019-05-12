@@ -25,11 +25,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 arg1 = Integer.valueOf(editText1.getText().toString());
                 arg2 = Integer.valueOf(editText2.getText().toString());
-                if (arg1 == arg2) {
-                    textView.setText("Равно!");
-                } else {
-                    textView.setText("Равно!");
-                }
+                CheckEquals checkEquals = new CheckEquals();
+                textView.setText(checkEquals.Compare(arg1, arg2));
             }
         });
     }
