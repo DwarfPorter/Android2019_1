@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
+                    textView.setText("Введите число!");
                 }
             }
         });
