@@ -6,7 +6,7 @@ public class CheckEquals {
             return "Равно!";
         }
         else{
-            return "Равно!";
+            return "Не равно!";
         }
     }
 }
