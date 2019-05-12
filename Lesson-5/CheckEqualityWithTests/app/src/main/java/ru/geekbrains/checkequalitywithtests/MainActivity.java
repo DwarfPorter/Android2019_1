@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Integer arg1;
-    private Integer arg2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arg1 = Integer.valueOf(editText1.getText().toString());
-                arg2 = Integer.valueOf(editText2.getText().toString());
+                String arg1 = editText1.getText().toString();
+                String arg2 = editText2.getText().toString();
                 CheckEquals checkEquals = new CheckEquals();
                 textView.setText(checkEquals.Compare(arg1, arg2));
             }
