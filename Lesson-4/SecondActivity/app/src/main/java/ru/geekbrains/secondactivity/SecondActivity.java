@@ -15,13 +15,21 @@ public class SecondActivity extends AppCompatActivity implements Constants{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        initView();
+        initAction();
+        Toast.makeText(getApplicationContext(),"Second - onCreate()", Toast.LENGTH_SHORT).show();
+    }
+
+    private void initView(){
         Parcel parcel = (Parcel) getIntent().getExtras().getSerializable(TEXT); // получить данные из Intent
 
         TextView textView = findViewById(R.id.textView);
         EditText editText = findViewById(R.id.editText3);
         textView.setText(parcel.text);         // Сохранить их в TextView
         editText.setText(((Integer) parcel.number).toString());
+    }
 
+    private void initAction(){
         Button backToFirstActivity = findViewById(R.id.buttonBack);
         backToFirstActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,10 +40,7 @@ public class SecondActivity extends AppCompatActivity implements Constants{
                 setResult(RESULT_OK, intentResult);
                 finish();
             }
-
         });
-
-        Toast.makeText(getApplicationContext(),"Second - onCreate()", Toast.LENGTH_SHORT).show();
     }
 
     @Override

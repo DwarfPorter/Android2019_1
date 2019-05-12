@@ -16,23 +16,31 @@ public class MainActivity extends AppCompatActivity implements Constants{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(),"Main - onCreate()", Toast.LENGTH_SHORT).show();
+        initAction();
+    }
 
+    private void initAction(){
         Button startSecondActivity = findViewById(R.id.button);
         startSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Формируем посылку
-                EditText txt = findViewById(R.id.editText);
-                EditText num = findViewById(R.id.editText2);
-                Parcel parcel = new Parcel();
-                parcel.text = txt.getText().toString();
-                parcel.number = Integer.parseInt(num.getText().toString());
+                Parcel parcel = createParcel();
                 // Посылка сформирована, отправляем
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra(TEXT, parcel);    // Отправляем посылку
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
+    }
+
+    private Parcel createParcel(){
+        // Формируем посылку
+        EditText txt = findViewById(R.id.editText);
+        EditText num = findViewById(R.id.editText2);
+        Parcel parcel = new Parcel();
+        parcel.text = txt.getText().toString();
+        parcel.number = Integer.parseInt(num.getText().toString());
+        return parcel;
     }
 
     @Override
