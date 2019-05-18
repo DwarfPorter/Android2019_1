@@ -15,11 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] data = getResources().getStringArray(R.array.items);
-        initRecyclerView(data);
+        // строим источник данных
+        SocSource sourceData = new SocSource(getResources());
+        initRecyclerView(sourceData.build());
     }
 
-    private void initRecyclerView(String[] data){
+    private void initRecyclerView(SocSource sourceData){
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
         // Эта установка служит для повышения производительности системы
@@ -30,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Установим адаптер
-        SocnetAdapter adapter = new SocnetAdapter(data);
+        SocnetAdapter adapter = new SocnetAdapter(sourceData);
         recyclerView.setAdapter(adapter);
 
         // Установим слушателя
         adapter.SetOnItemClickListener(new SocnetAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(MainActivity.this, String.format("%s - %d", ((TextView)view).getText(), position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, String.format("Позиция - %d", position), Toast.LENGTH_SHORT).show();
             }
         });
     }
