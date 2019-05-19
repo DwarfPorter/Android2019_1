@@ -1,4 +1,4 @@
-Андроид. Базовый уровень. 2018
+Андроид. Базовый уровень. 2019
 Урок 1:
 	Lesson-1/HelloActivity - "Приветствие"
 Урок 2:
@@ -26,3 +26,5 @@
 Урок 7:
 	Lesson-7/CityHeraldryList - Организация подобия списка через макетом
 	Lesson-7/SocialNetwork - RecyclerView, Организация списка
+Урок 8:
+	Lesson-8/Login - Введение в TextInputLayout
