@@ -17,11 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // строим источник данных
-        SocSource sourceData = new SocSource(getResources());
-        initRecyclerView(sourceData.build());
+        SocialDataSource sourceData = new SocSourceBuilder()
+                .setResources(getResources())
+                .build();
+        initRecyclerView(sourceData);
     }
 
-    private void initRecyclerView(SocSource sourceData){
+    private void initRecyclerView(SocialDataSource sourceData){
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
         // Эта установка служит для повышения производительности системы
