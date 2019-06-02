@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+// Тестирование pull-request
 public class MainActivity extends AppCompatActivity implements GreetingStrings {  // Наследуем класс Activity
     // или его потомка
     // Этот метод вызывается при создании Activity
